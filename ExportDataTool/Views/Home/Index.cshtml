@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model ExportDataTool.Models.ExportModel;
+
+<div class="text-center">
+    <form asp-controller="Home" asp-action="ExportData">
+        <div class="form-group">
+            <label for="DataSource">Data source</label>
+            <select class="form-control" id="DataSource" name="DataSource">
+                <option>Microsoft SQL Server</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ConnectionString">Connection string</label>
+            <textarea class="form-control" id="ConnectionString" name="ConnectionString" rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.ConnectionString, null, new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="SQL">SQL</label>
+            <textarea class="form-control" id="SQL" name="SQL" rows="3"></textarea>
+            @Html.ValidationMessageFor(x => x.SQL, null, new { @class = "text-danger" })
+        </div>
+        <button type="submit" class="btn btn-primary">Download Excel</button>
+    </form>
+</div>
